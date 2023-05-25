@@ -2,7 +2,7 @@
 // You can modify this code
 // Product data
 let data = []
-sessionStorage.setItem("data", JSON.stringify(data))
+sessionStorage.setItem("cart", JSON.stringify(data))
 
 const products = [
     { id: 1, name: "Product 1", price: 10 },
@@ -34,7 +34,7 @@ const products = [
   function renderCart() {
     const cart = document.getElementById("cart-list")
     cart.innerHTML = ""
-    let data = JSON.parse(sessionStorage.getItem("data"))
+    let data = JSON.parse(sessionStorage.getItem("cart"))
     data.forEach((ele, ind) => {
         const li = document.createElement("li");
         li.innerHTML = `${ele.name} - $${ele.price}`
@@ -56,7 +56,7 @@ const products = [
             data.push(ele)
         }
     })
-    sessionStorage.setItem("data", JSON.stringify(data))
+    sessionStorage.setItem("cart", JSON.stringify(data))
     renderCart(data)
   }
   
@@ -65,7 +65,7 @@ const products = [
     data = data.filter((ele, ind) => {
         return ind != productId
     })
-    sessionStorage.setItem("data", JSON.stringify(data))
+    sessionStorage.setItem("cart", JSON.stringify(data))
     renderCart(data)
   }
   
@@ -74,7 +74,7 @@ const products = [
     const cart = document.getElementById("cart-list")
     cart.innerHTML = ""
     data = []
-    sessionStorage.setItem("data", JSON.stringify(data))
+    sessionStorage.setItem("cart", JSON.stringify(data))
   }
 
   const clearBtn = document.getElementById("clear-cart-btn")
